@@ -5,12 +5,12 @@ int createXML(const char* xmlPath){
 	if(3 != doc.LoadFile(xmlPath)){
 		cout <<"file has been existed !"<<endl;
 		return 0;
-	}   
+	}
 
 	//添加申明可以使用如下两行
 	XMLDeclaration* declaration=doc.NewDeclaration();
 	doc.InsertFirstChild(declaration);
-	
+
 	XMLElement* root=doc.NewElement("XMLUSER");
 	doc.InsertEndChild(root);
 	
@@ -138,9 +138,9 @@ int deleteXML(const char* xmlPath){
 	}
 	XMLElement* root=doc.RootElement();
 	XMLElement* userNode=root->FirstChildElement("User");
-	XMLElement*mobile = userNode->FirstChildElement("Mobile");
+	XMLElement* mobile = userNode->FirstChildElement("Mobile");
 	userNode->DeleteChild(mobile);
-	XMLElement*mobile1 = userNode->FirstChildElement("Mobile");
+	XMLElement* mobile1 = userNode->FirstChildElement("Mobile");
 	mobile1->DeleteAttribute("Location");
 	return doc.SaveFile(xmlPath);
 }
@@ -175,8 +175,7 @@ int test3(){
 </XMLUSER>
 #endif
 //改
-int changeXML(const char* xmlPath)
-{
+int changeXML(const char* xmlPath){
 	XMLDocument doc;
 	if(doc.LoadFile(xmlPath)!=0){
 		cout<<"load xml file failed"<<endl;
@@ -230,8 +229,7 @@ int test4()
 #endif
 
 //查
-int selectXML(const char* xmlPath)
-{
+int selectXML(const char* xmlPath){
 	XMLDocument doc;
 	if(doc.LoadFile(xmlPath)!=0){
 		cout<<"load xml file failed"<<endl;
